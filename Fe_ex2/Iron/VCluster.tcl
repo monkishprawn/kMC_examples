@@ -1,0 +1,152 @@
+param set type=string key=Iron/VCluster/shape		value=void
+param set type=float  key=Iron/VCluster/density.cm3 	value=8.46e22
+param set type=string key=Iron/VCluster/migration.type 	value=3d
+param set type=coordinates key=Iron/VCluster/axis.1 	value={ 0 1 0 }
+param set type=coordinates key=Iron/VCluster/axis.0 	value={ 0 0 1 }
+param set type=coordinates key=Iron/VCluster/not.in.plane value={ 0 0 0 }
+param set type=float  key=Iron/VCluster/axes.ratio	value=1
+param set type=bool   key=Iron/VCluster/IV.model	value=false
+param set type=bool   key=Iron/VCluster/percolation	value=true
+param set type=float  key=Iron/VCluster/lambda		value=0.287
+
+
+
+param set type=proc key=Iron/VCluster/formation value={ {        set list ""
+	#set FILE [open "test.txt" w]
+	#close $FILE
+	#set FILE [open "test.txt" a]
+	set pot 0
+	set potC 0
+	set Ef 2.0
+	# CmVn available complexes with n=1 are added now
+	#
+	lappend list C2V < [expr 2.0 - 0.6 - 0.9] > 
+	lappend list C3V < [expr 2.0 - 0.6 - 0.9 - 0.15] > 
+
+	for { set n 2 } { $n < 500 } { incr n } {
+
+		# ener is the binding energy
+		# pot is the sum (negative) of all the binding energies
+		#
+		set enerC 0
+		if { $n == 2 } { set ener 0.15; set enerC 0.35 }
+		if { $n == 3 } { set ener 0.15; set enerC 0.15 }
+		if { $n == 4 } { set ener 0.25; set enerC 0.15 }
+		if { $n == 5 } { set ener 0.25; set enerC 0.40 }
+		if { $n  > 5 } { set ener [expr 1.71 - 2.76*(pow($n+1,0.73)-pow($n,0.73))] }
+		
+		set pot [expr $pot - $ener]
+		lappend list V$n < [expr $n*$Ef + $pot] >
+
+		# enerC is used to account for the higher binding energy of V in CV2, CV3 and CV4 
+		# than in V2, V3 and V4 complexes. Sum of binding energies for CmVn are in potC
+		#
+		set potC [expr $potC - $ener - $enerC]
+		lappend list CV$n < [expr $n*$Ef + $potC] >
+
+		set carbon [expr int(4*pow($n,2./3))-1]
+		if { $carbon > 100 } { set carbon 100 }
+		if { $carbon > 1 } {
+			set EbC 0.8
+			for { set m 2} { $m < [expr $carbon+1] } { incr m } {
+				lappend list C${m}V${n} < [expr $n*$Ef + $potC - $EbC*($m-1)] >
+				#puts $FILE "C${m}V${n} [expr $n*$Ef + $potC - $EbC*($m-1)]"
+
+			}
+		}
+
+	}
+	#close $FILE
+	return $list
+} }
+
+param set type=proc key=Iron/VCluster/prefactor value={ {        set list ""
+	set pref1 1.373e-3
+	lappend list C2V,C $pref1 
+	lappend list C3V,C $pref1 
+	for { set n 2 } { $n < 500 } { incr n } {
+		if { $n < 250 } { 
+			set pref [expr $pref1 * 1.5 * pow($n,1./3)] 
+		} else { 
+			set pref [expr $pref1 * 15.84 * pow($n,1./3)]	
+		}
+		lappend list V$n,V $pref
+		lappend list CV$n,V $pref
+
+		set carbon [expr int(4*pow($n,2./3))-1]
+		if { $carbon > 100 } { set carbon 100 }
+		if { $carbon > 1 } {
+			for { set m 2} { $m < [expr $carbon+1] } { incr m } {
+				lappend list C${m}V${n},C $pref
+			}
+		}
+	}
+	return $list
+} }
+
+
+param set type=proc key=Iron/VCluster/migration value={ {
+	set list ""
+	set Emig(2)	0.6;	set Emig(3)	0.4;	set Emig(4)	0.5;	set Emig(5)	0.74;	set Emig(6)	0.96;	set Emig(7)	0.99;	set Emig(8)	1.01
+	set Emig(9)	0.96;	set Emig(10)	0.99;	set Emig(11)	1;	set Emig(12)	1.03;	set Emig(13)	1.11;	set Emig(14)	1.26;	set Emig(15)	1.35
+	set Emig(16)	1.37;	set Emig(17)	1.37;	set Emig(18)	1.26;	set Emig(19)	1.18;	set Emig(20)	1.14;	set Emig(21)	1.12;	set Emig(22)	1.11
+	set Emig(23)	1.11;	set Emig(24)	1.11;	set Emig(25)	1.12;	set Emig(26)	1.12;	set Emig(27)	1.12;	set Emig(28)	1.12;	set Emig(29)	1.13
+	set Emig(30)	1.14;	set Emig(31)	1.15;	set Emig(32)	1.17;	set Emig(33)	1.19;	set Emig(34)	1.21;	set Emig(35)	1.22;	set Emig(36)	1.22
+	set Emig(37)	1.22;	set Emig(38)	1.21;	set Emig(39)	1.2;	set Emig(40)	1.19;	set Emig(41)	1.18;	set Emig(42)	1.18;	set Emig(43)	1.19
+	set Emig(44)	1.19;	set Emig(45)	1.2;	set Emig(46)	1.22;	set Emig(47)	1.23;	set Emig(48)	1.25;	set Emig(49)	1.26;	set Emig(50)	1.28
+	set Emig(51)	1.29;	set Emig(52)	1.3;	set Emig(53)	1.3;	set Emig(54)	1.31;	set Emig(55)	1.35;	set Emig(56)	1.4;	set Emig(57)	1.46
+	set Emig(58)	1.52;	set Emig(59)	1.58;	set Emig(60)	1.6;	set Emig(61)	1.57;	set Emig(62)	1.52;	set Emig(63)	1.49;	set Emig(64)	1.47
+	set Emig(65)	1.44;	set Emig(66)	1.41;	set Emig(67)	1.37;	set Emig(68)	1.33;	set Emig(69)	1.29;	set Emig(70)	1.25;	set Emig(71)	1.22
+	set Emig(72)	1.2;	set Emig(73)	1.19;	set Emig(74)	1.18;	set Emig(75)	1.18;	set Emig(76)	1.18;	set Emig(77)	1.18;	set Emig(78)	1.18
+	set Emig(79)	1.18;	set Emig(80)	1.18;	set Emig(81)	1.18;	set Emig(82)	1.18;	set Emig(83)	1.18;	set Emig(84)	1.18;	set Emig(85)	1.17
+	set Emig(86)	1.17;	set Emig(87)	1.16;	set Emig(88)	1.16;	set Emig(89)	1.15;	set Emig(90)	1.14;	set Emig(91)	1.14;	set Emig(92)	1.14
+	set Emig(93)	1.13;	set Emig(94)	1.13;	set Emig(95)	1.13;	set Emig(96)	1.13;	set Emig(97)	1.12;	set Emig(98)	1.12;	set Emig(99)	1.12
+	set Emig(100)	1.12;	set Emig(101)	1.12;	set Emig(102)	1.13;	set Emig(103)	1.13;	set Emig(104)	1.13;	set Emig(105)	1.13;	set Emig(106)	1.13
+	set Emig(107)	1.14;	set Emig(108)	1.14;	set Emig(109)	1.14;	set Emig(110)	1.15;	set Emig(111)	1.15;	set Emig(112)	1.15;	set Emig(113)	1.16
+	set Emig(114)	1.16;	set Emig(115)	1.17;	set Emig(116)	1.17;	set Emig(117)	1.18;	set Emig(118)	1.18;	set Emig(119)	1.19;	set Emig(120)	1.19
+	set Emig(121)	1.2;	set Emig(122)	1.2;	set Emig(123)	1.21;	set Emig(124)	1.22;	set Emig(125)	1.22;	set Emig(126)	1.23;	set Emig(127)	1.23
+	set Emig(128)	1.24;	set Emig(129)	1.24;	set Emig(130)	1.25;	set Emig(131)	1.26;	set Emig(132)	1.26;	set Emig(133)	1.27;	set Emig(134)	1.27
+	set Emig(135)	1.28;	set Emig(136)	1.28;	set Emig(137)	1.29;	set Emig(138)	1.29;	set Emig(139)	1.3;	set Emig(140)	1.3;	set Emig(141)	1.3
+	set Emig(142)	1.31;	set Emig(143)	1.31;	set Emig(144)	1.32;	set Emig(145)	1.32;	set Emig(146)	1.32;	set Emig(147)	1.33;	set Emig(148)	1.33
+	set Emig(149)	1.33;	set Emig(150)	1.33;	set Emig(151)	1.34;	set Emig(152)	1.34;	set Emig(153)	1.34;	set Emig(154)	1.34;	set Emig(155)	1.34
+	set Emig(156)	1.34;	set Emig(157)	1.34;	set Emig(158)	1.34;	set Emig(159)	1.34;	set Emig(160)	1.34;	set Emig(161)	1.34;	set Emig(162)	1.34
+	set Emig(163)	1.34;	set Emig(164)	1.34;	set Emig(165)	1.33;	set Emig(166)	1.33;	set Emig(167)	1.33;	set Emig(168)	1.33;	set Emig(169)	1.33
+	set Emig(170)	1.32;	set Emig(171)	1.32;	set Emig(172)	1.32;	set Emig(173)	1.31;	set Emig(174)	1.31;	set Emig(175)	1.31;	set Emig(176)	1.3
+	set Emig(177)	1.3;	set Emig(178)	1.3;	set Emig(179)	1.29;	set Emig(180)	1.29;	set Emig(181)	1.29;	set Emig(182)	1.28;	set Emig(183)	1.28
+	set Emig(184)	1.27;	set Emig(185)	1.27;	set Emig(186)	1.26;	set Emig(187)	1.26;	set Emig(188)	1.25;	set Emig(189)	1.25;	set Emig(190)	1.25
+	set Emig(191)	1.24;	set Emig(192)	1.24;	set Emig(193)	1.23;	set Emig(194)	1.23;	set Emig(195)	1.22;	set Emig(196)	1.22;	set Emig(197)	1.21
+	set Emig(198)	1.21;	set Emig(199)	1.2;	set Emig(200)	1.2;	set Emig(201)	1.19;	set Emig(202)	1.19;	set Emig(203)	1.18;	set Emig(204)	1.18
+	set Emig(205)	1.18;	set Emig(206)	1.17;	set Emig(207)	1.17;	set Emig(208)	1.16;	set Emig(209)	1.16;	set Emig(210)	1.15;	set Emig(211)	1.15
+	set Emig(212)	1.15;	set Emig(213)	1.14;	set Emig(214)	1.14;	set Emig(215)	1.13;	set Emig(216)	1.13;	set Emig(217)	1.13;	set Emig(218)	1.12
+	set Emig(219)	1.12;	set Emig(220)	1.12;	set Emig(221)	1.11;	set Emig(222)	1.11;	set Emig(223)	1.11;	set Emig(224)	1.1;	set Emig(225)	1.1
+	set Emig(226)	1.1;	set Emig(227)	1.1;	set Emig(228)	1.09;	set Emig(229)	1.09;	set Emig(230)	1.09;	set Emig(231)	1.09;	set Emig(232)	1.09
+	set Emig(233)	1.08;	set Emig(234)	1.08;	set Emig(235)	1.08;	set Emig(236)	1.08;	set Emig(237)	1.08;	set Emig(238)	1.08;	set Emig(239)	1.08
+	set Emig(240)	1.08;	set Emig(241)	1.08;	set Emig(242)	1.08;	set Emig(243)	1.08;	set Emig(244)	1.08;	set Emig(245)	1.08;	set Emig(246)	1.1
+	set Emig(247)	1.12;	set Emig(248)	1.14;	set Emig(249)	1.16;	set Emig(250)	1.18
+	for { set n 2 } { $n < 251 } { incr n } {
+		set pref [expr 1.373e-3 * 20 / pow($n,4./3)]
+		lappend list V$n < $pref $Emig($n) >
+		if { $n == 2} {	lappend list CV$n < $pref 1.05 > }
+		if { $n == 3} {	lappend list CV$n < $pref 0.60 > }
+		if { $n == 4} {	lappend list CV$n < $pref 0.70 > }
+		if { $n == 5} {	lappend list CV$n < $pref 0.80 > }
+		if { $n  > 5} {	lappend list CV$n < $pref $Emig($n) > }
+	}
+	lappend list C2V < 1.373e-3 1.6 >
+	lappend list C3V < 0 5 >
+	set ener 1.20
+	for { set n 250 } { $n < 500 } { incr n } { 
+		set pref [expr 1.373e-3 * 20 / pow($n,4./3)]
+		lappend list V$n < $pref $ener >
+
+		set carbon [expr int(4*pow($n,2./3))-1]
+		if { $carbon > 100 } { set carbon 100 }
+		if { $carbon > 1 } {
+			for { set m 1} { $m < [expr $carbon+1] } { incr m } {
+				lappend list C${m}V${n} < 0 5 >
+			}
+		}
+		
+	}
+	return $list
+} }

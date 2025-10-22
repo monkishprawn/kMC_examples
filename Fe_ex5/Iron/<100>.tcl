@@ -1,0 +1,125 @@
+param set type=string key=Iron/<100>/shape		value=disk
+param set type=float  key=Iron/<100>/density.cm2 	value=1.92e15
+param set type=string key=Iron/<100>/migration.type 	value=perpendicular
+param set type=coordinates key=Iron/<100>/axis.1 	value={ 0 1 0 }
+param set type=coordinates key=Iron/<100>/axis.0 	value={ 0 0 1 }
+param set type=coordinates key=Iron/<100>/not.in.plane  value={ 0 0 0 }
+param set type=float  key=Iron/<100>/axes.ratio		value=1
+param set type=bool   key=Iron/<100>/IV.model		value=false
+param set type=bool   key=Iron/<100>/percolation	value=true
+param set type=float  key=Iron/<100>/lambda		value=0.287
+
+param set type=string key=Iron/<100>/from		value=ICluster
+
+
+param set type=proc key=Iron/<100>/migration value={ {        set list ""	
+	set pi 3.14159265
+	for { set n 2 } { $n < 5000 } { incr n } {
+		set pref 0
+		set ener 5	
+		lappend list I$n < $pref $ener >
+		set carbon [expr int(2*$pi*0.429*sqrt($n))-1]
+		if { $carbon > 20 } { set carbon 20 }
+		if { $carbon > 0 } {
+			for { set m 1} { $m < [expr $carbon+1] } { incr m } {
+				lappend list C${m}I${n} < 0% $pref $ener 100% $pref $pref >
+			}
+		}
+	}
+	return $list
+} }
+
+
+param set type=proc key=Iron/<100>/transform.from value={ {  set list ""
+	set pi 3.14159265	
+        for { set n 2 } { $n < 5000 } { incr n } {
+		lappend list I$n
+		if { $n < 5 } {
+			lappend list < 1e10 0 >
+		} else {
+			lappend list < 0 5 >
+		}
+		lappend list CI$n
+		if { $n < 5 } {
+			lappend list < 1e10 0 >
+		} else {
+			lappend list < 0 5 >
+		}
+		set carbon [expr int(2*$pi*0.429*sqrt($n))-1]
+		if { $carbon > 20 } { set carbon 20 }
+		if { $carbon > 0 } {
+			for { set m 2 } { $m < 20 } { incr m } {
+				lappend list C${m}I{$n}
+				if { $n < 5 } {
+					lappend list < 1e10 0 >
+				} else {
+					lappend list < 0 5 >
+				}
+			}
+		}
+	}
+	return $list  
+} }
+
+param set type=proc key=Iron/<100>/formation value={ {        set list ""
+	set pi 3.14159265
+	for { set n 2 } { $n < 5000 } { incr n } {
+		set pot 0
+		if { $n < 6 } {
+			# ener is the binding energy
+			# pot is the sum (negative) of all the binding energies
+			set e [expr 2./3.]
+			set Ef 3.64
+			set Eb2 0.80
+			if { $n == 2 } { set ener 0.8  }
+			if { $n == 3 } { set ener 0.92 }
+			if { $n == 4 } { set ener 1.64 }
+			if { $n == 5 } { set ener [expr $Ef + ($Eb2 - $Ef)*(pow($n,$e)-pow($n-1,$e))/.587401] }
+			set pot [expr $pot - $ener]
+			lappend list I$n < [expr $n*$Ef + $pot ] >
+		} else {
+			# ener is the formation energy
+			set c0  1.77677
+			set c1  7.15951
+			set c2 -5.81801
+			set ener [expr $c2 + sqrt($n)*($c1 + $c0*log($n))]
+			lappend list I$n < $ener >
+			set carbon [expr int(2*$pi*0.429*sqrt($n))-1]
+			if { $carbon > 20 } { set carbon 20 }
+			if { $carbon > 0 } {
+				set EbC 0.5
+				for { set m 1} { $m < [expr $carbon+1] } { incr m } {
+					lappend list C${m}I${n} < [expr $ener - ($EbC*$m) ] >
+				}
+			}
+
+		}
+	}
+	return $list
+} }
+
+param set type=proc key=Iron/<100>/prefactor value={ {        set list ""
+	set pi 3.14159265
+	for { set n 2 } { $n < 5000 } { incr n } {
+		set pref1 1.107e-2
+		if { $n < 10 } {
+			set pref [expr $pref1 * $n]
+			lappend list I$n,I
+			lappend list $pref
+		} else {
+			set pref [expr $pref1 * sqrt(6*3.14159265*$n) / pow(3,0.25)]
+			lappend list I$n,I
+			lappend list $pref
+			set carbon [expr int(2*$pi*0.429*sqrt($n))-1]
+			if { $carbon > 20 } { set carbon 20 }
+			if { $carbon > 0 } {
+				for { set m 1} { $m < [expr $carbon+1] } { incr m } {
+					lappend list C${m}I${n},C
+					lappend list [ expr $pref1 * $m ]
+				}
+			}
+		}
+	}
+	return $list
+} }
+
