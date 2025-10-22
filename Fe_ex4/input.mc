@@ -1,15 +1,15 @@
-set filename accumulation
+set filename accumulation_overlap
 
 ## ----- Definition of parameters ------ ##
 # units seconds
-set time [expr 60*60]
+set time [expr 60]
 # units kelvin
 set T		7
-set n_cascades  1000
+set n_cascades  10000
 
 # units nm
 set a0          [param get type=float key=Iron/Lattice/parameter]
-set size	[expr $a0 * 80]
+set size	[expr $a0 * 40]
 # units cm^-2
 set fluence	[expr ${n_cascades}/(1e-14*${size}*${size})]
 # units cm^-2 s^-1
@@ -20,7 +20,12 @@ set flux	[expr ${fluence}/${time}]
 source Fe.source.tcl
 ## ------------------------------------ ##
 
+# Rewrite file 
+set   FILE [open "${filename}_defects.data" w]
+puts  $FILE "fluence V_MP I_MP d111 d100 IClus VClus"
+
 proc snapshot {} {
+	global FILE
 	global filename
 	global flux
 	global size
@@ -39,10 +44,20 @@ proc snapshot {} {
 
 	set	FILE [open "${filename}_defects.data" a]
 	puts	$FILE "$n ${fluence} ${V_MP} ${I_MP} ${d111} ${d100} ${dV100} ${VClus} ${IClus}"
-	close	$FILE
 
 	save lammps=${filename} scale=10 append
 }
+
+## ----- Set melt radius ------ ## 
+param set type=float key=Iron/Models/melt.radius value=3.0
+
+param set type=map<string,bool> key=Iron/Models/can.melt value={ {
+        <100>           false
+        <111>           false
+        ICluster        true
+        VCluster        true
+        V<100>          false
+} }
 
 ## ------- Define the material -------- ##
 param set type=map<string,string>   key=MC/General/materials value="Iron Fe Gas Gas"
@@ -54,23 +69,7 @@ proc material { x y z } {
 init minx=0 miny=0 minz=0 maxx=${size} maxy=${size} maxz=${size} material=material
 ## ------------------------------------ ##
 
-# Rewrite file 
-set   FILE [open "${filename}_defects.data" w]
-puts  $FILE "fluence V_MP I_MP d111 d100 IClus VClus"
-close $FILE
-
 save lammps=${filename} scale=10
-
-## ----- Set melt radius ------ ## 
-param set type=float key=Iron/Models/melt.radius value=300.0
-
-param set type=map<string,bool> key=Iron/Models/can.melt value={ {
-	<100>		true
-	<111>		true
-	ICluster	true
-	VCluster	true
-	V<100>		true
-} }
 
 # Apply cascades
 cascade file=defects.xyz format=B:C:D:E periodic fluence=$fluence flux=$flux \
@@ -80,3 +79,4 @@ temp=[ expr $T - 273.15 ] voluminic overlap
 snapshot
 
 report all overlap.fullreport
+close $FILE

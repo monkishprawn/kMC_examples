@@ -50,10 +50,6 @@ init minx=-$halfbox miny=-$halfbox minz=-$halfbox maxx=$halfbox maxy=$halfbox ma
 param set type=float	 key=MC/General/snapshot.time.min      			value=1e-8
 param set type=float	 key=MC/General/snapshot.time.delta    			value=0.0
 param set type=int		 key=MC/General/snapshot.time.decade			value=100
-proc snapshot { } {
-#	save lammps=evolution scale=10 append
-#	puts "suxes"
-}
 
 ## ------------------------------ ##
 			
@@ -69,15 +65,12 @@ set fluence [ expr $n_cascades*1e14 / $area ]
 # units cm^-2 s^-1
 set flux [ expr $fluence / $tTotal ]
 
-#snapshot
+
 ## ------- Run simulation ------- ##
 # Read cascade input data fluence in cm^-2
 cascade file=out.xyz format=A:B/10:C/10:D/10 periodic fluence=$fluence flux=0 do.not.react do.not.shift
 
 save lammps=evolution scale=10
-
-#anneal temp=[expr $T - 273.15] time=$time
-
 
 set time 0
 
@@ -91,6 +84,8 @@ while { $time < $tTotal } {
 	set time [expr $time + $snapshot_interval]
 	
 }
+
+snapshot
 # Output
 
  

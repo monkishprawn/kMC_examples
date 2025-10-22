@@ -752,25 +752,34 @@ param set type='float' key='Iron/Models/lambda' value='0.287'
 -------------------------------------------------------------------------------
 
 ------------------------------------------------------------------- param -----
+param set type='float' key='Iron/Models/melt.radius' value='3.0'
+-------------------------------------------------------------------------------
+
+------------------------------------------------------------------- param -----
+param set type='map<string,bool>' key='Iron/Models/can.melt' value=' 
+  (...)'
+-------------------------------------------------------------------------------
+
+------------------------------------------------------------------- param -----
 param set type='map<string,string>' key='MC/General/materials' value='Iron Fe Gas Gas'
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- init -----
-init minx='0' miny='0' minz='0' maxx='22.959999999999997' maxy='22.959999999999997' maxz='22.959999999999997' material='material'
+init minx='0' miny='0' minz='0' maxx='11.479999999999999' maxy='11.479999999999999' maxz='11.479999999999999' material='material'
 -------------------------------------------------------------------------------
 
 Melt radius for Gas not found. Set to zero instead.
 Reading defects: Gas() Iron(<100> <111> HeCluster ICluster V<100> VCluster ) 
-     X: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-     Y: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-     Z: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-Total 3375 elements
+     X: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+     Y: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+     Z: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+Total 512 elements
 Loading Particle To Node handler
 Building nodes... Done
 0 -> Gas
 1 -> Iron
-111111111111111 -                  0:1.53067
-111111111111111 -                  21.4293:22.96
+11111111 -           0:1.435
+11111111 -           10.045:11.48
 Starting clusters:  Gas() Iron(<100> <111> HeCluster ICluster V<100> VCluster )
 Interfacing...
 Checking SPER... 0/0 atoms. Done.
@@ -779,25 +788,11 @@ save lammps='accumulation' scale='10'
 -------------------------------------------------------------------------------
 
 Writing 0 atoms in accumulation.dump done!.
-------------------------------------------------------------------- param -----
-param set type='float' key='Iron/Models/melt.radius' value='300.0'
--------------------------------------------------------------------------------
-
-------------------------------------------------------------------- param -----
-param set type='map<string,bool>' key='Iron/Models/can.melt' value=' 
-	<100>		true
-	<111>		true
-	ICluster	true
-	VCluster	true
-	V<100>		true
- '
--------------------------------------------------------------------------------
-
 ----------------------------------------------------------------- cascade -----
-cascade file='defects.xyz' format='B:C:D:E' periodic fluence='189695152302443.94' flux='52693097861.789986' temp='-266.15' voluminic overlap
+cascade file='defects.xyz' format='B:C:D:E' periodic fluence='7587806092097758.0' flux='126463434868295.97' temp='-266.15' voluminic overlap
 -------------------------------------------------------------------------------
 
-Trying 1000 cascades for domain 0
+Trying 10000 cascades for domain 0
 10000 cascades detected. Format detected is '# New cascade' tag.
 ---------------------------- Warning -----------------------------------
 Empty cascades are present.
@@ -810,7 +805,7 @@ save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
 Writing 0 atoms in accumulation.dump done!.
--266C     6.53s           1   0.18%    1.5e-01 s^-1       0 ev/s 735 Mb
+-266C   0.0109s           1   0.02%    9.2e+01 s^-1       0 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -820,7 +815,7 @@ save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
 Writing 0 atoms in accumulation.dump done!.
--266C     11.1s           2   0.31%    2.2e-01 s^-1 735 Mb
+-266C   0.0185s           2   0.03%    1.3e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -829,8 +824,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 12 atoms in accumulation.dump done!.
--266C     20.4s           7   0.57%    5.4e-01 s^-1 735 Mb
+Writing 4 atoms in accumulation.dump done!.
+-266C   0.0276s           4   0.05%    2.2e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -839,8 +834,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 20 atoms in accumulation.dump done!.
--266C     30.3s          12   0.84%    5.0e-01 s^-1 735 Mb
+Writing 10 atoms in accumulation.dump done!.
+-266C   0.0319s           5   0.05%    2.3e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -849,8 +844,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 28 atoms in accumulation.dump done!.
--266C     42.5s          16   1.18%    3.3e-01 s^-1 735 Mb
+Writing 9 atoms in accumulation.dump done!.
+-266C   0.0418s          10   0.07%    5.1e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -859,8 +854,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 42 atoms in accumulation.dump done!.
--266C     51.3s          18   1.43%    2.3e-01 s^-1 735 Mb
+Writing 9 atoms in accumulation.dump done!.
+-266C     0.05s          12   0.08%    2.4e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -869,8 +864,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 44 atoms in accumulation.dump done!.
--266C     63.9s          19   1.78%    7.9e-02 s^-1 735 Mb
+Writing 13 atoms in accumulation.dump done!.
+-266C   0.0646s          14   0.11%    1.4e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -879,8 +874,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 60 atoms in accumulation.dump done!.
--266C     72.2s          23   2.01%    4.8e-01 s^-1 735 Mb
+Writing 16 atoms in accumulation.dump done!.
+-266C   0.0747s          16   0.12%    2.0e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -889,8 +884,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 62 atoms in accumulation.dump done!.
--266C     80.4s          25   2.23%    2.4e-01 s^-1 735 Mb
+Writing 24 atoms in accumulation.dump done!.
+-266C   0.0837s          17   0.14%    1.1e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -899,8 +894,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 70 atoms in accumulation.dump done!.
--266C     92.5s          27   2.57%    1.7e-01 s^-1 735 Mb
+Writing 26 atoms in accumulation.dump done!.
+-266C    0.093s          18   0.16%    1.1e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -909,8 +904,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 84 atoms in accumulation.dump done!.
--266C      102s          28   2.85%    1.0e-01 s^-1 735 Mb
+Writing 36 atoms in accumulation.dump done!.
+-266C    0.101s          21   0.17%    3.8e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -919,8 +914,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 164 atoms in accumulation.dump done!.
--266C      202s          52   5.62%    2.4e-01 s^-1 735 Mb
+Writing 35 atoms in accumulation.dump done!.
+-266C    0.114s          23   0.19%    1.5e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -929,8 +924,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 216 atoms in accumulation.dump done!.
--266C      301s          76   8.36%    2.4e-01 s^-1 735 Mb
+Writing 40 atoms in accumulation.dump done!.
+-266C        1s         156   1.67%    1.5e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -939,8 +934,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 300 atoms in accumulation.dump done!.
--266C      404s         108  11.22%    3.1e-01 s^-1 735 Mb
+Writing 86 atoms in accumulation.dump done!.
+-266C        2s         341   3.34%    1.8e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -949,8 +944,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 422 atoms in accumulation.dump done!.
--266C      503s         139  13.98%    3.1e-01 s^-1 735 Mb
+Writing 64 atoms in accumulation.dump done!.
+-266C        3s         511   5.00%    1.7e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -959,8 +954,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 586 atoms in accumulation.dump done!.
--266C      605s         156  16.80%    1.7e-01 s^-1      17 ev/s 735 Mb
+Writing 105 atoms in accumulation.dump done!.
+-266C        4s         665   6.67%    1.5e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -969,8 +964,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 710 atoms in accumulation.dump done!.
--266C      706s         182  19.62%    2.6e-01 s^-1 735 Mb
+Writing 280 atoms in accumulation.dump done!.
+-266C     5.01s         830   8.34%    1.6e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -979,8 +974,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 768 atoms in accumulation.dump done!.
--266C      806s         207  22.39%    2.5e-01 s^-1      25 ev/s 735 Mb
+Writing 138 atoms in accumulation.dump done!.
+-266C     6.03s         984  10.06%    1.5e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -989,8 +984,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 852 atoms in accumulation.dump done!.
--266C      900s         241  25.01%    3.6e-01 s^-1 735 Mb
+Writing 254 atoms in accumulation.dump done!.
+-266C     7.01s        1179  11.68%    2.0e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -999,8 +994,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 990 atoms in accumulation.dump done!.
--266C    1e+03s         274  27.85%    3.2e-01 s^-1      33 ev/s 735 Mb
+Writing 246 atoms in accumulation.dump done!.
+-266C        8s        1355  13.34%    1.8e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -1009,8 +1004,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 1674 atoms in accumulation.dump done!.
--266C    2e+03s         576  55.61%    3.0e-01 s^-1 735 Mb
+Writing 208 atoms in accumulation.dump done!.
+-266C     9.01s        1506  15.01%    1.5e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -1019,9 +1014,8 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 2272 atoms in accumulation.dump done!.
--266C    3e+03s         827  83.36%    2.5e-01 s^-1     125 ev/s 735 Mb
-Created Iron,I(2780) Iron,V(2780) 
+Writing 203 atoms in accumulation.dump done!.
+-266C       10s        1688  16.67%    1.8e+02 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
@@ -1030,74 +1024,240 @@ extract time
 save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 3320 atoms in accumulation.dump done!.
+Writing 349 atoms in accumulation.dump done!.
+-266C       20s        3394  33.34%    1.7e+02 s^-1 729 Mb
+----------------------------------------------------------------- extract -----
+extract time
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------- save -----
+save lammps='accumulation' scale='10' append
+-------------------------------------------------------------------------------
+
+Writing 583 atoms in accumulation.dump done!.
+-266C       30s        5094  50.00%    1.7e+02 s^-1    1700 ev/s 729 Mb
+----------------------------------------------------------------- extract -----
+extract time
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------- save -----
+save lammps='accumulation' scale='10' append
+-------------------------------------------------------------------------------
+
+Writing 621 atoms in accumulation.dump done!.
+-266C       40s        6831  66.69%    1.7e+02 s^-1 729 Mb
+----------------------------------------------------------------- extract -----
+extract time
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------- save -----
+save lammps='accumulation' scale='10' append
+-------------------------------------------------------------------------------
+
+Writing 829 atoms in accumulation.dump done!.
+-266C       50s        8564  83.34%    1.7e+02 s^-1 729 Mb
+Created Iron,I(28623) Iron,V(28623) 
+----------------------------------------------------------------- extract -----
+extract time
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------- save -----
+save lammps='accumulation' scale='10' append
+-------------------------------------------------------------------------------
+
+Writing 846 atoms in accumulation.dump done!.
 ------------------------------------------------------------------ report -----
 report all overlap.fullreport
 -------------------------------------------------------------------------------
 
-Created Iron,I(2780) Iron,V(2780) 
+Created Iron,I(28623) Iron,V(28623) 
 ----------------- Event Log --------------
  ----------------------------------------Gas                    Cascade
 Type                Cascades
-Cascade                  984
+Cascade                10103
 
  ----------------------------------------Iron                   Cluster
 Type                   Mig      To    From     Rec Emissions  
-ICluster/I5                              7         
-ICluster/I6                              5         
-ICluster/I7                              1         
-ICluster/I8                              4         
-ICluster/I9                             13         
+<111>/I2                                12         
+<111>/I3                                17         
+<111>/I4                                57         
+ICluster/I5                             40         
+ICluster/I6                             33         
+ICluster/I7                             11         
+ICluster/I8                             10         
+ICluster/I9                             69         
 
 ----------------- Reaction Log --------------
  ----------------------------------------Iron            MobileParticle
-MobileParticle V+V                  55 V+I                 558
-MobileParticle I+V                 466 I+I                  92
+MobileParticle V+V                 452 V+I                3109
+MobileParticle I+V                2351 I+I                 716
 
  ----------------------------------------Iron                   Cluster
-Cluster    <111>+V               8 <111>+I              14 <111>+VCluster        1
-Cluster    ICluster+V           39 ICluster+I          200 ICluster+ICluster       3 ICluster+VCluster       4
-Cluster    VCluster+V          381 VCluster+I           37
+Cluster    <111>+V            4785 <111>+I            4749 <111>+<111>          13 <111>+ICluster       19 <111>+VCluster       17
+Cluster    ICluster+V          244 ICluster+I         1206 ICluster+<111>        7 ICluster+ICluster      15 ICluster+VCluster       4
+Cluster    VCluster+V         2089 VCluster+I          200 VCluster+<111>        9 VCluster+ICluster       2 VCluster+VCluster       3
 
 ----------------- Cascade overlap reaction Log --------------
-Particle sum across all materials:                         0
+ ----------------------------------------Iron           
+Defects destroyed: 
+
+From                                  To                   Count
+
+ICluster/I2        ->   MobileParticle I                  29
+ICluster/I2        ->                [X]                 301
+ICluster/I3        ->        ICluster/I2                   8
+ICluster/I3        ->   MobileParticle I                  12
+ICluster/I3        ->                [X]                  71
+ICluster/I4        ->        ICluster/I2                   5
+ICluster/I4        ->        ICluster/I3                   5
+ICluster/I4        ->   MobileParticle I                   8
+ICluster/I4        ->  MobileParticle I2                   2
+                    +         ICluster/I
+ICluster/I4        ->                [X]                  79
+MobileParticle I   ->                [X]               15720
+MobileParticle V   ->                [X]               15225
+VCluster/V2        ->   MobileParticle V                  17
+VCluster/V2        ->                [X]                 111
+VCluster/V3        ->   MobileParticle V                   6
+VCluster/V3        ->        VCluster/V2                   9
+VCluster/V3        ->                [X]                  23
+VCluster/V4        ->   MobileParticle V                   4
+VCluster/V4        ->        VCluster/V2                   3
+VCluster/V4        ->        VCluster/V3                   4
+VCluster/V4        ->                [X]                  34
+VCluster/V5        ->   MobileParticle V                   2
+VCluster/V5        ->        VCluster/V2                   4
+VCluster/V5        ->        VCluster/V3                   4
+VCluster/V5        ->        VCluster/V4                   3
+VCluster/V5        ->                [X]                  32
+VCluster/V6        ->   MobileParticle V                   3
+VCluster/V6        ->        VCluster/V3                   1
+VCluster/V6        ->        VCluster/V4                   1
+VCluster/V6        ->        VCluster/V5                   5
+VCluster/V6        ->                [X]                  22
+VCluster/V7        ->   MobileParticle V                   1
+VCluster/V7        ->        VCluster/V4                   1
+VCluster/V7        ->        VCluster/V5                   5
+VCluster/V7        ->        VCluster/V6                   6
+VCluster/V7        ->                [X]                  14
+VCluster/V8        ->   MobileParticle V                   1
+VCluster/V8        ->        VCluster/V2                   1
+VCluster/V8        ->        VCluster/V3                   2
+VCluster/V8        ->        VCluster/V4                   3
+VCluster/V8        ->        VCluster/V5                   1
+VCluster/V8        ->        VCluster/V6                   1
+VCluster/V8        ->        VCluster/V7                   1
+VCluster/V8        ->                [X]                  15
+VCluster/V9        ->   MobileParticle V                   2
+VCluster/V9        ->        VCluster/V2                   1
+VCluster/V9        ->        VCluster/V3                   1
+VCluster/V9        ->        VCluster/V7                   4
+VCluster/V9        ->        VCluster/V8                   3
+VCluster/V9        ->                [X]                  24
+VCluster/V10       ->        VCluster/V3                   1
+VCluster/V10       ->        VCluster/V5                   2
+VCluster/V10       ->        VCluster/V7                   1
+VCluster/V10       ->        VCluster/V9                   1
+VCluster/V10       ->                [X]                   7
+VCluster/V11       ->        VCluster/V2                   2
+VCluster/V11       ->        VCluster/V3                   1
+VCluster/V11       ->        VCluster/V4                   1
+VCluster/V11       ->        VCluster/V5                   2
+VCluster/V11       ->        VCluster/V6                   1
+VCluster/V11       ->        VCluster/V8                   1
+VCluster/V11       ->        VCluster/V9                   3
+VCluster/V11       ->       VCluster/V10                   1
+VCluster/V11       ->                [X]                   8
+VCluster/V12       ->        VCluster/V3                   1
+VCluster/V12       ->        VCluster/V5                   1
+VCluster/V12       ->        VCluster/V8                   1
+VCluster/V12       ->        VCluster/V9                   3
+VCluster/V12       ->       VCluster/V10                   3
+VCluster/V12       ->       VCluster/V11                   3
+VCluster/V12       ->                [X]                  11
+VCluster/V13       ->   MobileParticle V                   1
+VCluster/V13       ->        VCluster/V7                   1
+VCluster/V13       ->                [X]                   6
+VCluster/V14       ->       VCluster/V11                   1
+VCluster/V14       ->       VCluster/V13                   1
+VCluster/V14       ->                [X]                   2
+VCluster/V15       ->        VCluster/V2                   1
+VCluster/V15       ->        VCluster/V4                   1
+VCluster/V15       ->                [X]                   2
+VCluster/V16       ->   MobileParticle V                   1
+VCluster/V16       ->       VCluster/V12                   2
+VCluster/V16       ->                [X]                   1
+VCluster/V17       ->        VCluster/V3                   1
+VCluster/V17       ->        VCluster/V5                   1
+VCluster/V17       ->        VCluster/V7                   1
+VCluster/V17       ->       VCluster/V15                   1
+VCluster/V17       ->       VCluster/V16                   2
+VCluster/V17       ->                [X]                   3
+VCluster/V18       ->        VCluster/V5                   1
+VCluster/V18       ->       VCluster/V16                   1
+VCluster/V18       ->       VCluster/V17                   3
+VCluster/V18       ->                [X]                   2
+VCluster/V19       ->        VCluster/V3                   1
+VCluster/V19       ->                [X]                   2
+VCluster/V20       ->        VCluster/V6                   1
+VCluster/V20       ->       VCluster/V17                   1
+VCluster/V20       ->       VCluster/V18                   1
+VCluster/V20       ->                [X]                   2
+VCluster/V21       ->                [X]                   1
+VCluster/V23       ->       VCluster/V14                   1
+VCluster/V23       ->                [X]                   1
+VCluster/V24       ->       VCluster/V20                   1
+VCluster/V25       ->                [X]                   1
+VCluster/V26       ->        VCluster/V7                   1
+VCluster/V26       ->                [X]                   1
+VCluster/V27       ->       VCluster/V18                   1
+VCluster/V29       ->                [X]                   1
+VCluster/V36       ->       VCluster/V20                   1
+VCluster/V42       ->                [X]                   2
+
+Particles removed: 
+
+                V                                      17753
+                I                                      16953
+
+Total:                                                 34706
+
+Particle sum across all materials:                     34706
 
 ----------------------------- Defect logfile --------------
 ---------------------------------------      Iron --------
-<111>/I10                            5
-<111>/I5                             7
+<111>/I10                            4
+<111>/I12                            1
+<111>/I13                            2
+<111>/I14                            1
+<111>/I16                            1
+<111>/I17                            5
+<111>/I18                            2
+<111>/I19                            1
+<111>/I20                            1
+<111>/I21                            1
+<111>/I23                            1
+<111>/I27                            1
+<111>/I28                            1
+<111>/I29                            1
+<111>/I34                            1
+<111>/I36                            1
+<111>/I38                            1
+<111>/I47                            1
+<111>/I55                            1
 <111>/I6                             2
-<111>/I7                             2
-<111>/I8                             4
-<111>/I9                             9
-ICluster/I2                         31
-ICluster/I3                         10
-ICluster/I4                          3
-MobileParticle/I                  1332
-MobileParticle/V                  1222
-VCluster/V10                         2
-VCluster/V11                         1
-VCluster/V12                         1
-VCluster/V14                         2
-VCluster/V15                         3
-VCluster/V17                         2
-VCluster/V2                          9
-VCluster/V20                         1
-VCluster/V21                         2
-VCluster/V3                          7
-VCluster/V31                         1
-VCluster/V34                         1
-VCluster/V4                          4
+<111>/I64                            1
+<111>/I87                            1
+<111>/I9                             4
+MobileParticle/I                    18
+MobileParticle/V                    18
 VCluster/V5                          1
-VCluster/V6                          6
-VCluster/V7                          2
-VCluster/V8                          3
-VCluster/V9                          3
 0 -> Gas
 1 -> Iron
-111111111111111 -                  0:1.53067
-111111111111111 -                  21.4293:22.96
-Time spent: 24s. Annealing: 5s.
-       357 times: Empty cascades are present.
+11111111 -           0:1.435
+11111111 -           10.045:11.48
+Time spent: 19s. Annealing: 1s.
+      3677 times: Empty cascades are present.
 There are 16 total sentences. Collect them all!
-¡Adiós amigos!
+Lo más importante en la vida es...
+                               ... ¡Vaya! ¡Se me olvidó!

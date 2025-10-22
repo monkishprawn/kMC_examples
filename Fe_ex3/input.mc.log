@@ -756,35 +756,34 @@ param set type='map<string,string>' key='MC/General/materials' value='Iron Fe Ga
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- init -----
-init minx='0' miny='0' minz='0' maxx='22.959999999999997' maxy='22.959999999999997' maxz='22.959999999999997' material='material'
+init minx='0' miny='0' minz='0' maxx='11.479999999999999' maxy='11.479999999999999' maxz='11.479999999999999' material='material'
 -------------------------------------------------------------------------------
 
 Melt radius for Gas not found. Set to zero instead.
-Melt radius for Iron not found. Set to zero instead.
 Reading defects: Gas() Iron(<100> <111> HeCluster ICluster V<100> VCluster ) 
-     X: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-     Y: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-     Z: (0 - 22.96) nm. 15 elements. Delta = 1.53067 nm.
-Total 3375 elements
+     X: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+     Y: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+     Z: (0 - 11.48) nm. 8 elements. Delta = 1.435 nm.
+Total 512 elements
 Loading Particle To Node handler
 Building nodes... Done
 0 -> Gas
 1 -> Iron
-111111111111111 -                  0:1.53067
-111111111111111 -                  21.4293:22.96
+11111111 -           0:1.435
+11111111 -           10.045:11.48
 Starting clusters:  Gas() Iron(<100> <111> HeCluster ICluster V<100> VCluster )
 Interfacing...
 Checking SPER... 0/0 atoms. Done.
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10'
+save lammps='accumulation' scale='10'
 -------------------------------------------------------------------------------
 
-Writing 0 atoms in defect_accumulation.dump done!.
+Writing 0 atoms in accumulation.dump done!.
 ----------------------------------------------------------------- cascade -----
-cascade file='defects.xyz' format='B:C:D:E' periodic fluence='5.6908545690733184e+17' flux='6586637232723.748' temp='-266.15' voluminic
+cascade file='defects.xyz' format='B:C:D:E' periodic fluence='75878060920977580.0' flux='15175612184195516.0' temp='-266.15' voluminic
 -------------------------------------------------------------------------------
 
-Trying 3e+06 cascades for domain 0
+Trying 100000 cascades for domain 0
 10000 cascades detected. Format detected is '# New cascade' tag.
 ---------------------------- Warning -----------------------------------
 Empty cascades are present.
@@ -793,494 +792,363 @@ extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 0 atoms in defect_accumulation.dump done!.
--266C   0.0523s           1   0.00%    1.9e+01 s^-1       0 ev/s 735 Mb
+Writing 0 atoms in accumulation.dump done!.
+-266C 9.07e-05s           1   0.00%    1.1e+04 s^-1       0 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 0 atoms in defect_accumulation.dump done!.
--266C   0.0887s           2   0.00%    2.7e+01 s^-1 735 Mb
+Writing 0 atoms in accumulation.dump done!.
+-266C 0.000154s           2   0.00%    1.6e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 2 atoms in defect_accumulation.dump done!.
--266C   0.0902s           3   0.00%    6.4e+02 s^-1 735 Mb
+Writing 4 atoms in accumulation.dump done!.
+-266C  0.00023s           4   0.00%    2.6e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 4 atoms in defect_accumulation.dump done!.
--266C    0.132s           4   0.00%    2.4e+01 s^-1 735 Mb
+Writing 14 atoms in accumulation.dump done!.
+-266C 0.000314s           8   0.01%    4.8e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 116 atoms in defect_accumulation.dump done!.
--266C        1s          35   0.00%    3.6e+01 s^-1 735 Mb
+Writing 18 atoms in accumulation.dump done!.
+-266C 0.000406s          11   0.01%    3.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 206 atoms in defect_accumulation.dump done!.
--266C     2.01s          68   0.00%    3.3e+01 s^-1 735 Mb
+Writing 22 atoms in accumulation.dump done!.
+-266C 0.000539s          14   0.01%    2.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 284 atoms in defect_accumulation.dump done!.
--266C        3s         102   0.00%    3.4e+01 s^-1 735 Mb
+Writing 22 atoms in accumulation.dump done!.
+-266C 0.000653s          16   0.01%    1.7e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 422 atoms in defect_accumulation.dump done!.
--266C     4.03s         135   0.00%    3.2e+01 s^-1 735 Mb
+Writing 30 atoms in accumulation.dump done!.
+-266C 0.000828s          17   0.02%    5.7e+03 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 602 atoms in defect_accumulation.dump done!.
--266C     5.05s         163   0.01%    2.7e+01 s^-1 735 Mb
+Writing 48 atoms in accumulation.dump done!.
+-266C 0.000908s          20   0.02%    3.7e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 786 atoms in defect_accumulation.dump done!.
--266C     6.05s         200   0.01%    3.7e+01 s^-1      37 ev/s 735 Mb
+Writing 50 atoms in accumulation.dump done!.
+-266C  0.00105s          22   0.02%    1.4e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 1012 atoms in defect_accumulation.dump done!.
--266C     7.02s         245   0.01%    4.6e+01 s^-1 735 Mb
+Writing 52 atoms in accumulation.dump done!.
+-266C  0.00116s          23   0.02%    9.3e+03 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 1106 atoms in defect_accumulation.dump done!.
--266C     8.02s         285   0.01%    4.0e+01 s^-1 735 Mb
+Writing 104 atoms in accumulation.dump done!.
+-266C  0.00214s          38   0.04%    1.5e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 1250 atoms in defect_accumulation.dump done!.
--266C     9.03s         321   0.01%    3.6e+01 s^-1 735 Mb
+Writing 140 atoms in accumulation.dump done!.
+-266C  0.00301s          58   0.06%    2.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 1330 atoms in defect_accumulation.dump done!.
--266C       10s         357   0.01%    3.5e+01 s^-1 735 Mb
+Writing 170 atoms in accumulation.dump done!.
+-266C   0.0041s          77   0.08%    1.7e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 2316 atoms in defect_accumulation.dump done!.
--266C       20s         703   0.02%    3.5e+01 s^-1 735 Mb
+Writing 212 atoms in accumulation.dump done!.
+-266C  0.00516s         102   0.10%    2.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 3448 atoms in defect_accumulation.dump done!.
--266C       30s        1036   0.03%    3.3e+01 s^-1     333 ev/s 735 Mb
+Writing 308 atoms in accumulation.dump done!.
+-266C  0.00601s         131   0.12%    3.4e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 4300 atoms in defect_accumulation.dump done!.
--266C       40s        1423   0.05%    3.9e+01 s^-1 735 Mb
+Writing 338 atoms in accumulation.dump done!.
+-266C   0.0071s         156   0.14%    2.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 5328 atoms in defect_accumulation.dump done!.
--266C       50s        1821   0.06%    4.0e+01 s^-1 735 Mb
+Writing 342 atoms in accumulation.dump done!.
+-266C    0.008s         168   0.16%    1.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 5652 atoms in defect_accumulation.dump done!.
--266C       60s        2222   0.07%    4.0e+01 s^-1     401 ev/s 735 Mb
+Writing 372 atoms in accumulation.dump done!.
+-266C  0.00912s         188   0.18%    1.8e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 5996 atoms in defect_accumulation.dump done!.
--266C       70s        2589   0.08%    3.7e+01 s^-1     367 ev/s 735 Mb
+Writing 392 atoms in accumulation.dump done!.
+-266C     0.01s         209   0.20%    2.4e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 6414 atoms in defect_accumulation.dump done!.
--266C       80s        2929   0.09%    3.4e+01 s^-1 735 Mb
+Writing 418 atoms in accumulation.dump done!.
+-266C    0.011s         235   0.22%    2.6e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 6560 atoms in defect_accumulation.dump done!.
--266C       90s        3295   0.10%    3.7e+01 s^-1     366 ev/s 735 Mb
+Writing 676 atoms in accumulation.dump done!.
+-266C   0.0202s         440   0.40%    2.2e+04 s^-1     205 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 6750 atoms in defect_accumulation.dump done!.
--266C      100s        3668   0.12%    3.7e+01 s^-1 735 Mb
+Writing 758 atoms in accumulation.dump done!.
+-266C   0.0301s         643   0.60%    2.1e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 8378 atoms in defect_accumulation.dump done!.
--266C      200s        7306   0.23%    3.6e+01 s^-1    3638 ev/s 735 Mb
+Writing 874 atoms in accumulation.dump done!.
+-266C   0.0401s         856   0.80%    2.1e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 10082 atoms in defect_accumulation.dump done!.
--266C      300s       10990   0.35%    3.7e+01 s^-1    1842 ev/s 735 Mb
+Writing 980 atoms in accumulation.dump done!.
+-266C     0.05s        1086   1.00%    2.3e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 11350 atoms in defect_accumulation.dump done!.
--266C      400s       14716   0.46%    3.7e+01 s^-1    3726 ev/s 735 Mb
+Writing 1136 atoms in accumulation.dump done!.
+-266C     0.06s        1322   1.20%    2.4e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 12646 atoms in defect_accumulation.dump done!.
--266C      500s       18503   0.58%    3.8e+01 s^-1    1893 ev/s 735 Mb
+Writing 1312 atoms in accumulation.dump done!.
+-266C   0.0701s        1525   1.40%    2.0e+04 s^-1     203 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 13486 atoms in defect_accumulation.dump done!.
--266C      600s       22226   0.69%    3.7e+01 s^-1    1861 ev/s 735 Mb
+Writing 1294 atoms in accumulation.dump done!.
+-266C     0.08s        1761   1.60%    2.4e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 14626 atoms in defect_accumulation.dump done!.
--266C      700s       25904   0.81%    3.7e+01 s^-1    3678 ev/s 735 Mb
+Writing 1516 atoms in accumulation.dump done!.
+-266C     0.09s        1976   1.80%    2.2e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 15616 atoms in defect_accumulation.dump done!.
--266C      800s       29617   0.93%    3.7e+01 s^-1    1856 ev/s 735 Mb
+Writing 1664 atoms in accumulation.dump done!.
+-266C      0.1s        2199   2.00%    2.2e+04 s^-1 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 15798 atoms in defect_accumulation.dump done!.
--266C      900s       33307   1.04%    3.7e+01 s^-1    1845 ev/s 735 Mb
+Writing 1690 atoms in accumulation.dump done!.
+-266C     0.11s        2412   2.20%    2.1e+04 s^-1     213 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 16136 atoms in defect_accumulation.dump done!.
--266C    1e+03s       36866   1.16%    3.6e+01 s^-1    1779 ev/s 735 Mb
+Writing 2660 atoms in accumulation.dump done!.
+-266C        1s       20943  20.00%    2.1e+04 s^-1    9265 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 18634 atoms in defect_accumulation.dump done!.
--266C    2e+03s       73239   2.31%    3.6e+01 s^-1    5196 ev/s 735 Mb
+Writing 2746 atoms in accumulation.dump done!.
+-266C        2s       41965  40.00%    2.1e+04 s^-1    7007 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 19968 atoms in defect_accumulation.dump done!.
--266C    3e+03s      108906   3.47%    3.6e+01 s^-1    5944 ev/s 735 Mb
+Writing 3278 atoms in accumulation.dump done!.
+-266C        3s       62648  60.00%    2.1e+04 s^-1    6894 ev/s 729 Mb
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 21052 atoms in defect_accumulation.dump done!.
--266C    4e+03s      145294   4.63%    3.6e+01 s^-1    4548 ev/s 735 Mb
+Writing 2396 atoms in accumulation.dump done!.
+-266C        4s       83332  80.00%    2.1e+04 s^-1    6894 ev/s 729 Mb
+Created Iron,I(283930) Iron,V(283930) 
 ----------------------------------------------------------------- extract -----
 extract time
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
+save lammps='accumulation' scale='10' append
 -------------------------------------------------------------------------------
 
-Writing 20830 atoms in defect_accumulation.dump done!.
--266C    5e+03s      181638   5.79%    3.6e+01 s^-1    5192 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 20562 atoms in defect_accumulation.dump done!.
--266C    6e+03s      217955   6.94%    3.6e+01 s^-1    5188 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 20630 atoms in defect_accumulation.dump done!.
--266C    7e+03s      254586   8.10%    3.7e+01 s^-1    4578 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 22195 atoms in defect_accumulation.dump done!.
--266C    8e+03s      290806   9.26%    3.6e+01 s^-1    5174 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21758 atoms in defect_accumulation.dump done!.
--266C    9e+03s      326934  10.42%    3.6e+01 s^-1    4516 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21552 atoms in defect_accumulation.dump done!.
--266C    1e+04s      363195  11.57%    3.6e+01 s^-1    5180 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21726 atoms in defect_accumulation.dump done!.
--266C    2e+04s      724490  23.15%    3.6e+01 s^-1    6451 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21959 atoms in defect_accumulation.dump done!.
--266C    3e+04s     1086870  34.72%    3.6e+01 s^-1    6837 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 20511 atoms in defect_accumulation.dump done!.
--266C    4e+04s     1448309  46.30%    3.6e+01 s^-1    6693 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21977 atoms in defect_accumulation.dump done!.
--266C    5e+04s     1810546  57.87%    3.6e+01 s^-1    6586 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21890 atoms in defect_accumulation.dump done!.
--266C    6e+04s     2173329  69.44%    3.6e+01 s^-1    6844 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21908 atoms in defect_accumulation.dump done!.
--266C    7e+04s     2535307  81.02%    3.6e+01 s^-1    6829 ev/s 735 Mb
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 22704 atoms in defect_accumulation.dump done!.
--266C    8e+04s     2896454  92.59%    3.6e+01 s^-1    6945 ev/s 735 Mb
-Out I(3) V(1) 
-Created Iron,I(8513511) Iron,V(8513513) 
------------------------------------------------------------------ extract -----
-extract time
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------- save -----
-save lammps='defect_accumulation' scale='10' append
--------------------------------------------------------------------------------
-
-Writing 21828 atoms in defect_accumulation.dump done!.
-Time spent: 514s. Annealing: 492s.
-   1090978 times: Empty cascades are present.
+Writing 2836 atoms in accumulation.dump done!.
+Time spent: 35s. Annealing: 16s.
+     36396 times: Empty cascades are present.
 There are 16 total sentences. Collect them all!
-Son, observe the time...
-                     ... and fly from evil.
+Lo más importante en la vida es...
+                               ... ¡Vaya! ¡Se me olvidó!

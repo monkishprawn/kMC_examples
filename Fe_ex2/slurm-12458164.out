@@ -1,3 +1,0 @@
-[2025-10-17T20:25:19.769] error: execve(): /scratch/phys/nume/t30429_numealloys/Ilja/OKMC/MMonCa/Obj_g++/mmonca: No such file or directory
-srun: error: pe63: task 0: Exited with exit code 2
-srun: Terminating StepId=12458164.0
